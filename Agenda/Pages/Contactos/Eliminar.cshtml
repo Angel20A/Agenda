@@ -1,0 +1,50 @@
+﻿@page
+@model Agenda.Pages.Contactos.EliminarModel
+@{
+    ViewData["Title"] = "Borrar Contacto";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h2 class="text-info">Eliminar un Contacto</h2>
+
+            <form method="post">
+
+                <input type="hidden" asp-for="contactoVM.Contacto.id"/>
+
+                <div class="mb-3">
+                    <label asp-for="contactoVM.Contacto.Nombre" class="form-label"></label>
+                    <input asp-for="contactoVM.Contacto.Nombre" class="form-control" readonly/>
+                    <span asp-validation-for="contactoVM.Contacto.Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="contactoVM.Contacto.Email" class="form-label"></label>
+                    <input asp-for="contactoVM.Contacto.Email" class="form-control" readonly/>
+                    <span asp-validation-for="contactoVM.Contacto.Email" class="text-info"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="contactoVM.Contacto.Telefono" class="form-label"></label>
+                    <input asp-for="contactoVM.Contacto.Telefono" class="form-control" readonly/>
+                    <span asp-validation-for="contactoVM.Contacto.Telefono" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="contactoVM.Contacto.Categoria" class="form-label"></label>
+                    <input asp-for="contactoVM.Contacto.Categoria.Nombre" class="form-control" readonly/>
+                    <span asp-validation-for="contactoVM.Contacto.CategoriaId" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Eliminar</button>
+            </form>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a asp-page="Index" class="btn btn-success">Volver</a>
+        </div>
+    </div>
+</div>

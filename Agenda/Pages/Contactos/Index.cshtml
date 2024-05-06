@@ -1,0 +1,58 @@
+﻿@page
+@model Agenda.Pages.Contactos.IndexModel
+@{
+    ViewData["Title"] = "Lista de contactos";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-9">
+            <h2 class="text-info">Lista de Contactos</h2>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-secondary" asp-page="/Contactos/Crear">Crear Nuevo Contacto</a>
+        </div>
+    </div>
+
+    <br />
+    <br />
+    @if(Model.Contactos.Count() > 0)
+    {
+        <table id="tblContactos" class="table table-stripped table-bordered" style="width: 100%;">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.Contactos.FirstOrDefault().id)</th>
+                    <th>@Html.DisplayNameFor(m => m.Contactos.FirstOrDefault().Nombre)</th>
+                    <th>@Html.DisplayNameFor(m => m.Contactos.FirstOrDefault().Email)</th>
+                    <th>@Html.DisplayNameFor(m => m.Contactos.FirstOrDefault().Telefono)</th>
+                    <th>@Html.DisplayNameFor(m => m.Contactos.FirstOrDefault().FechaCreacion)</th>
+                    <th>@Html.DisplayNameFor(m => m.Contactos.FirstOrDefault().Categoria)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var contacto in Model.Contactos)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(m => contacto.id)</td>
+                        <td>@Html.DisplayFor(m => contacto.Nombre)</td>
+                        <td>@Html.DisplayFor(m => contacto.Email)</td>
+                        <td>@Html.DisplayFor(m => contacto.Telefono)</td>
+                        <td>@Html.DisplayFor(m => contacto.FechaCreacion)</td>
+                        <td>@Html.DisplayFor(m => contacto.Categoria.Nombre)</td>
+                        <td>
+                            <a class="btn btn-success" asp-page="/Contactos/Detalle" asp-route-id="@contacto.id">Detalle</a>
+                            <a class="btn btn-warning" asp-page="/Contactos/Editar" asp-route-id="@contacto.id">Editar</a>
+                            <a class="btn btn-danger" asp-page="/Contactos/Eliminar" asp-route-id="@contacto.id">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No hay contactos</p>
+    }
+
+</div>

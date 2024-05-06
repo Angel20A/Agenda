@@ -1,0 +1,27 @@
+﻿@page
+@model Agenda.Pages.Contactos.DetalleModel
+@{
+    ViewData["Title"] = "Detalle de Contacto";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h2 class="text-info">Detalle de contacto: @Html.DisplayFor(m => m.Contacto.id)</h2>
+
+            <ul class="list-group">
+                <li class="list-group-item">ID: @Html.DisplayFor(m => m.Contacto.id)</li>
+                <li class="list-group-item">Nombre: @Html.DisplayFor(m => m.Contacto.Nombre)</li>
+                <li class="list-group-item">E-Mail: @Html.DisplayFor(m => m.Contacto.Email)</li>
+                <li class="list-group-item">Telefono: @Html.DisplayFor(m => m.Contacto.Telefono)</li>
+                <li class="list-group-item">Categoría: @Html.DisplayFor(m => m.Contacto.Categoria.Nombre)</li>
+                <li class="list-group-item">Fecha de Creación: @Html.DisplayFor(m => m.Contacto.FechaCreacion)</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a asp-page="Index" class="btn btn-success">Volver</a>
+        </div>
+    </div>
+</div>

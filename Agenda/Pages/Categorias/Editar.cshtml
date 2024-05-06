@@ -1,0 +1,41 @@
+﻿@page
+@model Agenda.Pages.Categorias.EditarModel
+@{
+    ViewData["Title"] = "Editar una categoría";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h2 class="text-info">Editar una Categoría</h2>
+
+            <form method="post">
+
+                <input type="hidden" asp-for="categoria.Id"/>
+
+                <div class="mb-3">
+                    <label asp-for="categoria.Nombre" class="form-label"></label>
+                    <input asp-for="categoria.Nombre" class="form-control"/>
+                    <span asp-validation-for="categoria.Nombre" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="categoria.FechaCreacion" class="form-label"></label>
+                    <input asp-for="categoria.FechaCreacion" class="form-control"/>
+                    <span asp-validation-for="categoria.FechaCreacion" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Editar Categoría</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <a asp-page="Index" class="btn btn-success">Volver</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <partial name="_ValidationScriptsPartial" />
+}
